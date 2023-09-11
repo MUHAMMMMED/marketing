@@ -1,0 +1,33 @@
+
+{% extends "BaseGeneric.html" %} {% load static%} {% block content %}
+
+
+
+ <section class="hero-inner bg-primary-3"><div>
+   <h1>سياسة الخصوصية
+</h1>
+ </div></section>
+  
+
+
+ {% for policy in policies %}  <!-- Updated loop variable name to 'policy' -->
+   <div class="privacy-section section-spacing z-index">
+     <div class="container-medium w-container">
+       <div class="privacy-wrap">
+         <div class="w-richtext">
+           {{ policy.body|safe }}
+         </div>
+       </div>
+     </div>
+   </div>
+ {% endfor %}
+
+
+
+
+
+
+
+
+
+  {% endblock %}

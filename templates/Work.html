@@ -1,0 +1,63 @@
+
+{% extends "BaseGeneric.html" %} {% load static%} {% block content %}
+ <section class="hero-inner bg-primary-3">
+
+   <div class="w-layout-blockcontainer container-full w-container">
+     <div><h1>سابقة أعمالنا    </h1>
+ </div></section>
+
+ <section class="work-category-section">
+   <div class="w-layout-blockcontainer container-full w-container">
+     <div id="w-node-_7b90e88f-5fc6-73b6-b570-acbdc1207b17-60c2a8c4" class="w-dyn-list">
+       <div role="list" class="work-hero-list w-dyn-items">
+
+
+         <!-- Assuming you're iterating over a queryset of 'work' objects named 'works' -->
+         {% for work in works %}
+
+         <div role="listitem" class="w-dyn-item">
+           <a data-w-id="30352412-4909-006e-c99a-d5a182d23741"
+           href="{% url 'marketing:WorkDetails' work.id %}" class="work-item w-inline-block">
+             <div class="simple-work-image-wrap">
+               {% if work.Image %}
+               <img alt="" loading="eager" style="-webkit-transform:translate3d(0, 0, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0)
+                rotateZ(0deg) skew(0, 0);-moz-transform:translate3d(0, 0, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0deg)
+                 skew(0, 0);-ms-transform:translate3d(0, 0, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0deg) skew(0, 0);transform:translate3d(0, 0, 0)
+                  scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0deg) skew(0, 0)"
+                  src="{{ work.Image.url }}"
+                   sizes="(max-width: 479px) 94vw, (max-width: 767px) 92vw,
+                   (max-width: 991px) 44vw, (max-width: 1279px) 45vw, 44vw"
+                   srcset="{{ work.Image.url }} 500w,
+                    {{ work.Image.url }} 800w,
+                     {{ work.Image.url }} 900w"
+                      class="simple-work-image"/>
+ {% endif %}  
+
+                      </div>
+                      <div class="work-category-badge"> {{ work.Title}}</div>
+
+                        <a  class="button-primary w-button" >
+
+                     إكتشف أكثر</a>
+
+                      </a></div>
+   {% endfor %}
+
+
+
+
+
+
+
+           </div></div><div class="work-decoration-blur bg-gradient-1"></div><div class="work-decoration-blur-two bg-gradient-1"></div></section>
+
+
+
+
+
+
+
+
+
+
+  {% endblock %}

@@ -1,0 +1,105 @@
+
+{% extends "BaseGeneric.html" %}
+<meta name="keywords" content=" {{blog_obj.keywords}}  " />
+ {% load static%} {% block content %}
+
+
+ <section class="blog-details-section"><div class="w-layout-blockcontainer container-full w-container"><div>
+   <div>{{ blog_obj.category }}</div>
+   <div class="blog-badge"></div>
+
+
+
+   <h1 class="heading-h3">{{ blog_obj.Titel }}</h1>
+{% if blog_obj.slideImage %}
+   <img src="{{ blog_obj.slideImage.url }}" loading="eager"
+    alt="" sizes="(max-width: 479px) 94vw, (max-width: 767px) 92vw, (max-width: 991px) 94vw, (max-width: 1279px) 95vw, 93vw"
+    srcset="{{ blog_obj.slideImage.url }} 500w,
+    {{ blog_obj.slideImage.url }} 800w,
+     {{ blog_obj.slideImage.url }} 1080w,
+     {{ blog_obj.slideImage.url }} 1400w" class="blog-detail-image"/>     {% endif %}
+  <div class="blog-rich-text w-richtext">
+
+
+ {% if blog_obj.slideVideo %}
+    <figure class="w-richtext-figure-type-video w-richtext-align-fullwidth" style="padding-bottom:56.206088992974244%"
+    class="w-richtext-align-fullwidth w-richtext-figure-type-video"><div>
+      <iframe allowfullscreen="true" frameborder="0" scrolling="no" src="https://www.youtube.com/embed/{{blog_obj.slideVideo}}"></iframe>
+    </div></figure>
+  </div> {% endif %}
+      <div class="blog-rich-text w-richtext">
+
+
+
+{{ blog_obj.body|safe }}
+       <div>
+
+                  </div></div></div></section>
+
+
+                  <section class="section-spacing-bottom z-index">
+                    <div class="w-layout-blockcontainer container-full w-container">
+                      <div class="section-title-wrap">
+                      <h3>المدونات الأخيرة</h3>
+
+
+                    </div>
+
+
+                    <div class="w-dyn-list">
+                        <div role="list" class="grid-blog w-dyn-items">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                                                {% for blog_obj in blog %}
+
+
+
+
+                        <div role="listitem" class="w-dyn-item">
+                          <a data-w-id="1b3ed6e8-477c-3730-3f6e-48ef09ea4520" style="background-color:rgb(255,255,255)"
+                           href=" {% url 'marketing:blogdetails' blog_obj.id %}" class="blog-item w-inline-block">
+                           <div class="blog-image-wrap">
+                             <img alt="" loading="eager" style="-webkit-transform:translate3d(0, 0, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-moz-transform:translate3d(0, 0, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-ms-transform:translate3d(0, 0, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);transform:translate3d(0, 0, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0)" src="https://assets.website-files.com/64a3921df0df3bde4548a49f/64a39901f2b9dad51318cd1b_blog-03.jpg" class="blog-image"/>
+                           </div><div class="blog-badge-wrap">
+                             <div class="blog-badge">{{ blog_obj.category }}</div>
+                           <div>{{ blog_obj.created_at|timesince }}</div></div>
+                           <h6>{{ blog_obj.Titel }}</h6>
+                           <div class="blog-link">   اقرأ أكثر</div></a>
+                         </div>
+    {% endfor %}
+
+
+
+                             </div></div></div> </section>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  {% endblock %}

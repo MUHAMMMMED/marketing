@@ -1,0 +1,54 @@
+
+{% extends "BaseGeneric.html" %} {% load static%} {% block content %}
+
+
+ <style media="screen">
+.head{	display:none;}
+.footer{	display:none;
+width}
+</style>
+
+{% for info in information %}
+
+ <div class="link-in-bio-wrap"><div class="link-in-bio-item">
+		<a href="/" class="link-in-bio-icon-wrap w-inline-block">
+		<img src="{% static 'img/pngtree-business-man-avatar-png-image_6514640.png' %}" loading="eager" alt="" class="link-in-bio-image"  ></a>
+
+			<a href="/"   class="brand w-nav-brand w--current"  style=" margin-top:-15px;">
+
+
+				<img src="{% static 'img/logo.png' %}" loading="lazy"   style="width:300px;">
+</a>
+<p>نقدم حلولًا مبتكرة وتقنيات متقدمة لعملائنا لتعزيز نجاح أعمالهم. نحن ملتزمون بتحقيق أهداف التسويق وزيادة الوعي بالعلامة التجارية من خلال استراتيجيات مخصصة وتنفيذ فعال. اعتمادًا على خبرتنا وفهمنا العميق للسوق، نساعد عملائنا على تحقيق نتائج ملموسة وزيادة الارتباط مع جمهورهم المستهدف.
+
+</p>
+
+<div class="link-in-bio-button-wrap">
+<a href="/" class="button-primary-small w-button"> الموقع الإلكتروني</a>
+<a href="{% url 'marketing:service_all' %}" class="button-primary-small w-button"> استكشف خدماتنا </a>
+<a href="tel:{{ info.PHONE }} " class="button-primary-small w-button">  رقم الهاتف  : {{ info.PHONE }}  </a>
+<a href="https://wa.me/{{info.Whatsapp}}" class="button-primary-small w-button"> تواصل على الواتساب</a>
+	<!-- <a href="#" class="button-primary-small w-button"> </a> -->
+<a href="{% url 'marketing:CallUs' %}" class="button-primary-small w-button">اتصل بنا</a></div>
+	<div class="link-in-bio-social-icon">
+		<div>
+
+
+تابعنا على وسائل التواصل الإجتماعي
+		</div><div class="footer-social-wrap">
+			<a href="{{ info.facebooklinke }} " target="_blank" class="w-inline-block">
+				<img src="{% static 'img/64a2b018636eec16b791e85f_facebook.svg' %}" loading="eager" alt=""/></a>
+				<a href="{{ info.instagramlinke }} " target="_blank" class="w-inline-block">
+					<img src="{% static 'img/64a2b018636eec16b791e85d_instagram.svg' %}" loading="eager" alt=""/>
+				</a><a href="{{ info.Twitterlinke }} " target="_blank" class="w-inline-block">
+					<img src="{% static 'img/64a2b018636eec16b791e85e_twitter.svg' %}" loading="eager" alt=""/></a>
+				<a href="{{ info.linkedinlinke }} " target="_blank" class="w-inline-block">
+					<img src="{% static 'img/64a2b018636eec16b791e860_linkedin.svg' %}" loading="eager" alt=""/></a></div>
+</div></div></div>
+
+ {% endfor %}
+
+
+
+
+  {% endblock %}

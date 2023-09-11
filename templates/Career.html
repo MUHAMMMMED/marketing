@@ -1,0 +1,58 @@
+
+{% extends "BaseGeneric.html" %} {% load static%} {% block content %}
+
+
+
+
+
+
+<br><br><br><br><br><br>
+
+
+
+
+
+
+
+<section id="job-position" class="job-section section-spacing-bottom">
+	<div class="w-layout-blockcontainer container-full w-container">
+		<div class="section-title-center"><h3>فرص العمل المتاحة </h3><br><br>
+		</div>
+
+ {% for job in job %}
+		<div class="w-layout-grid grid-job">
+
+
+			<div id="w-node-_0634d4fa-b0f3-340b-dd28-95060ddfb9f8-32fb1cdd">
+				<a id="w-node-_090afc65-d8ba-b61e-7e4d-fc3188f7f942-32fb1cdd"
+				href="{% url 'marketing:CallUs' %}" class="text-decoration-none w-inline-block">
+					<h5 id="w-node-a2e9beb6-5b02-0724-8472-230505b74f11-32fb1cdd">{{ job.Jobtitel  }}</h5></a>
+					<div style="text-align:right;">
+
+				 {{ job.Job_type}}</div></div>
+					<div id="w-node-_69a106ac-dc55-ab20-42d1-44510c9dd712-32fb1cdd">{{ job.job_type_available  }}</div>
+					<div id="w-node-_1599040b-4d26-2426-9c2b-d4de027eff3b-32fb1cdd">{{ job.created_at|timesince   }}</div>
+					<div id="w-node-_5fb104dd-9022-fc0f-a2d7-0570b2c33c86-32fb1cdd">
+						<a href="{% url 'marketing:CallUs' %}" class="button-primary-small w-button"> قدم الان</a></div></div>
+        {% endfor %}
+
+
+
+
+
+
+
+													</div></section>
+
+
+
+
+
+
+
+
+
+
+
+
+  {% endblock %}

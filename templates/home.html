@@ -1,0 +1,344 @@
+
+{% extends "BaseGeneric.html" %} {% load static%} {% block content %}
+
+ <section class="hero-section bg-gradient-1"><img src="img/64a3941fb6e5e826ff62f786_decoration-01.svg" loading="eager" alt="" class="hero-decoration-one"/>
+ {% for info in slide %}
+ <div class="w-layout-blockcontainer container-full w-container">
+ <div class="w-layout-grid grid-hero">
+ <div id="w-node-b07831dd-f67e-f868-94cc-d9a1e7791c3e-7cab2173">
+ <img src="img/64a3941fb6e5e826ff62f781_vector-02.webp" loading="eager" alt=""
+					 sizes="(max-width: 479px) 100vw, (max-width: 767px) 92vw,
+					 (max-width: 991px) 93vw, (max-width: 1279px) 750px, (max-width: 1439px) 650px, 750px"
+					 srcset="img/64a3941fb6e5e826ff62f781_vector-02-p-500.webp 500w,
+
+					 {{ info.Image.url }} 765w"
+					 class="hero-image"/></div>
+ 	<div id="w-node-b07831dd-f67e-f868-94cc-d9a1e7791c34-7cab2173"><h1>
+{{ info.Titel }}
+</h1><p class="hero-description">
+{{ info.Description }}
+</p><a href="{% url 'marketing:About' %}" class="button-primary w-button">إكتشف أكثر</a>
+
+<div class="counter-wrap"><div class="counter-item one"><h2 class="heading-h5 text-secondary-2">+</h2><div class="text-center"></div>
+		</div><div class="counter-item two"><h2 class="heading-h5 text-primary-1">50+</h2><div class="text-center">أعضاء الفريق</div></div><div class="counter-item three">
+				<h2 class="heading-h5 text-secondary-3">120</h2><div class="text-center">المشاريع المنجزة</div></div></div></div>
+			<!-- 	<div id="w-node-b07831dd-f67e-f868-94cc-d9a1e7791c3e-7cab2173">
+
+					<img src="img/64a3941fb6e5e826ff62f781_vector-02.webp" loading="eager" alt=""
+					 sizes="(max-width: 479px) 100vw, (max-width: 767px) 92vw,
+					 (max-width: 991px) 93vw, (max-width: 1279px) 750px, (max-width: 1439px) 650px, 750px"
+					 srcset="img/64a3941fb6e5e826ff62f781_vector-02-p-500.webp 500w,
+
+					 img/hero.png 765w"
+					 class="hero-image"/></div> -->
+			</div>
+
+
+
+
+
+					</section>
+ {% endfor %}
+
+ {% for about_obj in about %}
+ <br>
+ <section class="about-section">
+<div class="w-layout-blockcontainer container-full w-container">
+<div class="w-layout-grid grid-about">
+<div id="w-node-_2f2e6906-1daa-5a4e-ae45-9f20f440c07b-7cab2173">
+<img src="{{ about_obj.Image.url }}" loading="eager" alt="" sizes="(max-width: 479px) 100vw, (max-width: 767px) 92vw, (max-width: 860px) 93vw, 800px"
+ srcset="img/work.png 500w,{{ about_obj.Image.url }}"/></div>
+<div id="w-node-_2f2e6906-1daa-5a4e-ae45-9f20f440c07d-7cab2173"><h3>
+{{ about_obj.Titel }}</h3><p>
+{{ about_obj.Description }}
+</p><div class="list-group">
+								<div class="list-item">
+									<img src="{% static 'img/64a390dc05c8ef1dd3d0e75b_list-point.png' %}" loading="lazy" alt=""/>
+                  <h4 class="list-title">   {{ about_obj.Point1 }}  </h4></div>
+									<div class="list-item">
+                    <img src="{% static 'img/64a390dc05c8ef1dd3d0e75b_list-point.png' %}" loading="lazy" alt=""/>
+                  <h4 class="list-title">  {{ about_obj.Point2 }}  </h4></div>
+									<div class="list-item">
+                    <img src="{% static 'img/64a390dc05c8ef1dd3d0e75b_list-point.png' %}" loading="lazy" alt=""/>
+                    <h4 class="list-title">
+					 {{ about_obj.Point3 }}
+                </h4></div></div>
+									<a href="{% url 'marketing:About' %}" class="button-primary w-button"> معلومات عنا</a></div></div></div>
+									<!-- <img src="img/64a39481697ab4e14b275edc_vector-04.webp" loading="eager" data-w-id="2f2e6906-1daa-5a4e-ae45-9f20f440c091" alt="" class="decoration-one"/> -->
+								</section>
+
+ {% endfor %}
+
+<section class="service-section section-spacing">
+<div class="w-layout-blockcontainer container-full w-container">
+<div class="service-hero-title-wrap">
+<h3>     تلبية أهداف عملك.  </h3></div>
+<div class="w-layout-grid grid-service margin-bottom">
+{% for service in services %}
+
+<a href=" {% url 'marketing:servicedetails' service.id %}" class="service-item w-inline-block">
+  <br>
+<div class="service-icon-wrap">
+<img src="{{ service.Image.url }}" loading="eager" alt=" {{ service.Title }}"/>
+</div><h4 class="service-item-title">  {{ service.Title }}	</h4>
+<div>{{ service.Description }}</div>
+<div class="blog-link">اقرأ أكثر</div>
+</a> {% endfor %}
+</section>
+
+
+        {% for review in reviews %}
+
+				<section class="client-review-section bg-gradient-1 section-spacing-bottom"><div>
+					<div class="review-blur-top-left"></div><div class="review-blur-top"></div>
+          <div class="review-blur-top-right"></div>
+          <div class="review-blur-bottom-left"></div><div class="review-blur-bottom"></div><div class="review-blur-bottom-right"></div></div>
+          <div class="z-index"><div class="w-layout-blockcontainer container-medium w-container"><div class="section-title-center">
+            <h3>تقييمات العملاء</h3></div><div class="w-layout-grid grid-review">
+						<div id="w-node-cf848063-469e-7864-48a4-00808d622920-7cab2173" class="review-item"><div class="review-content">
+							<p>{{ review.Description1 }} </p>
+
+							<img src="{% static 'img/64a39136d4c2d3a210c74c6e_vector-01.svg' %}" loading="eager" alt="" class="client-vector-one"/>
+
+						</div>
+
+							<img src="{% static 'img/64a39136d4c2d3a210c74c6f_re-01.webp' %}" loading="eager" alt="" class="review-image-one"/></div>
+              <div id="w-node-cf848063-469e-7864-48a4-00808d622926-7cab2173" class="review-item">
+
+								<img src="{% static 'img/64a39136d4c2d3a210c74c73_re-03.webp' %}" loading="eager" alt="" class="review-image-two"/><div class="review-content">
+ 							<p>{{ review.Description2 }} </p>
+
+									<!-- <img src="img/64a39136d4c2d3a210c74c77_vector-02.svg" loading="eager" alt="" class="client-vector-two"/> -->
+								</div></div>
+					<div id="w-node-cf848063-469e-7864-48a4-00808d62292c-7cab2173" class="review-item">
+
+
+						<div class="review-content">
+							<p>{{ review.Description3 }} </p>
+
+						<img src="{% static 'img/64a39136d4c2d3a210c74c6e_vector-01.svg' %}" loading="eager" alt="" class="client-vector-one"/></div>
+
+						<img src="{% static 'img/64a39136d4c2d3a210c74c71_re-02.webp' %}" loading="eager" alt="" class="review-image-one"/></div>
+            <div id="w-node-cf848063-469e-7864-48a4-00808d622932-7cab2173" class="review-item">
+
+							<img src="{% static 'img/64a39136d4c2d3a210c74c75_re-04.webp' %}" loading="eager" alt="" class="review-image-two"/>
+              <div class="review-content">
+							<p>{{ review.Description1 }} </p>
+								<!-- <img src="img/64a39136d4c2d3a210c74c77_vector-02.svg" loading="eager" alt="" class="client-vector-two"/> -->
+
+							</div>
+							</div></div></div></div>
+
+
+					<img src="{% static 'img/64a39136d4c2d3a210c74c78_vector-05.webp' %}" loading="eager" data-w-id="cf848063-469e-7864-48a4-00808d622938" alt="" class="decoration-two"/>
+
+
+        </section>
+
+
+        {% endfor %}
+
+		<!-- 			<section class="action-box-section z-index" >
+
+						<div class="w-layout-blockcontainer container-medium w-container"><div class="action-box-item"><div class="action-box-content"><h3 class="text-light">Have a project in mind?</h3><p class="action-box-description">Connect with Our Experts to Gain Insights, Share Your Objectives, and Discover the Full Potential of SEO for Your Business</p><a href="/contact-us" class="button-light w-button">Contact Us</a></div>
+
+						<img src="img/64a39167e20bb4386d604f80_vector-06.webp" loading="eager" alt="" class="action-box-image"/></div>
+
+					</div>
+
+						<img src="img/64a390dc05c8ef1dd3d0e75d_vector-07.webp" loading="eager" data-w-id="a37407eb-c425-1db1-037d-cf7cf454bf80" alt="" class="decoration-three"/></section>
+ -->
+
+
+<section class="service-pricing-section section-spacing-bottom footer-z-index">
+  <div class="w-layout-blockcontainer container-full w-container">
+    <div class="section-title-center"><h3>أفضل باقات خدمات لك</h3>
+<div class="toggle-wrapper"><div>
+</div></div></div>
+<div class="content-service-pricing-tab">
+  <div class="w-layout-grid grid-service-pricing">
+  <div id="w-node-_798f7de4-e56c-803d-e6de-876a65aa8053-01a2fa45" class="service-pricing-item">
+    <div class="service-pricing-title-wrap">
+      <h6 class="text-light">الباقة الفضية</h6>
+	<div style="opacity:1;display:grid" class="pricing-monthly">
+	<div class="pricing-title-wrap"><h3 class="service-pricing-title">{{pricing_object.Silver_package}}</h3><div>/</div><div>شهر</div></div></div>
+<div style="opacity:0;display:none" class="pricing-annual">
+	<div class="pricing-title-wrap"><h3 class="service-pricing-title"></h3><div></div><div></div></div></div></div>
+	<div class="service-pricing-list">
+		<div class="service-pricing-item-wrap">
+{% for package in silver_package %}
+<div class="pricing-item">
+<img src="{% static 'img/64a390f5e20bb4386d5fe2cf_list-icon.svg' %}" loading="eager" alt=""/><div>
+{{ package.Description }}</div></div>{% endfor %}
+
+		</div>
+   <a href="{% url 'marketing:CallUs' %}" class="button-primary-small w-button">البدء</a></div></div>
+		<div id="w-node-_798f7de4-e56c-803d-e6de-876a65aa807b-01a2fa45" class="service-pricing-item">
+      <div class="service-pricing-title-wrap">
+        <h6 class="text-light">الباقة الذهبية
+		</h6><div style="opacity:1;display:grid" class="pricing-monthly">
+      <div class="pricing-title-wrap">
+        <h3 class="service-pricing-title">{{pricing_object.Golden_package}}</h3><div>/</div><div>شهر</div>
+      </div></div><div style="opacity:0;display:none" class="pricing-annual">
+        <div class="pricing-title-wrap">
+          <h3 class="service-pricing-title"></h3>
+          <div>/</div><div></div></div></div></div><div class="service-pricing-list">
+
+			<div class="service-pricing-item-wrap">
+    {% for package in golden_package %}
+    <div class="pricing-item">
+    <img src="{% static 'img/64a390f5e20bb4386d5fe2cf_list-icon.svg' %}" loading="eager" alt=""/><div>
+    {{ package.Description }}</div></div>{% endfor %}
+</div><a href="{% url 'marketing:CallUs' %}" class="button-primary-small w-button">البدء</a></div></div>
+<div id="w-node-_798f7de4-e56c-803d-e6de-876a65aa80a3-01a2fa45" class="service-pricing-item"><div class="service-pricing-title-wrap">
+      <h6 class="text-light">الباقة البرونزية
+		</h6><div style="opacity:1;display:grid" class="pricing-monthly"
+    ><div class="pricing-title-wrap">
+      <h3 class="service-pricing-title"> {{pricing_object.Bronze_package}}  </h3><div>/</div><div>شهر</div></div></div>
+      <div style="opacity:0;display:none" class="pricing-annual">
+        <div class="pricing-title-wrap"><h3 class="service-pricing-title"></h3><div></div><div></div></div></div></div><div class="service-pricing-list">
+          <div class="service-pricing-item-wrap">
+    {% for package in bronze_package %}
+    <div class="pricing-item">
+    <img src="{% static 'img/64a390f5e20bb4386d5fe2cf_list-icon.svg' %}" loading="eager" alt=""/><div>
+    {{ package.Description }}</div></div>{% endfor %}
+</div><a href="{% url 'marketing:CallUs' %}" class="button-primary-small w-button">البدء</a></div></div></div></div></div></section>
+
+
+
+<section class="contact-detail-section" >
+
+
+
+  <div class="w-layout-blockcontainer container-full w-container"><div class="w-layout-grid grid-contact-details"><div><h3>تواصل مع فريقنا</h3>
+
+    <img src="{% static 'img/64a38f69b6e5e826ff5dff7a_vector-18.webp' %}" loading="eager" alt="" class="contact-image"/><div class="contact-social-media-wrap"><h6>
+  انضم إلى مجتمعنا عبر مواقع التواصل
+  </h6>
+	{% for info in information %}
+  <div class="contact-social-icon-wrap"  >
+
+  <a href="{{ info.facebooklinke }}" target="_blank" class="w-inline-block">
+      <img src="{% static 'img/64a2b018636eec16b791e85f_facebook.svg' %}" loading="eager" alt=""/></a>
+      <a href="{{ info.instagramlinke }}" target="_blank" class="w-inline-block">
+        <img src="{% static 'img/64a2b018636eec16b791e85d_instagram.svg' %}" loading="eager" alt=""/></a>
+        <a href="{{ info.linkedinlinke }}" target="_blank" class="w-inline-block">
+        <img src="{% static 'img/64a2b018636eec16b791e860_linkedin.svg' %}" loading="eager" alt=""/></a>
+        <a href="{{ info.Twitterlinke }}" target="_blank" class="w-inline-block">
+          <img src="{% static 'img/64a2b018636eec16b791e85e_twitter.svg' %}" loading="eager" alt=""/></a>
+        </div> {% endfor %}
+
+
+        </div></div>
+          <div id="w-node-_78e0e86c-cb92-2435-a6ed-fe29fd22373a-6d5e6a84">
+          <div class="contact-form w-form">
+
+          <form method="post"  >
+              {% csrf_token %}
+              <div class="contact-input-wrap">
+                  <div class="input-group input-full-width">
+                      <label for="Name">الاسم</label>
+                      {{ form.Name }}
+                  </div>
+                  <div class="input-group input-full-width">
+                      <label for="Phone-No">رقم الهاتف</label>
+                      {{ form.phone_number }}
+                  </div>
+              </div>
+              <div class="input-group">
+                  <label for="Message">رسالة</label>
+                  {{ form.Description }}
+              </div>
+              <input type="submit" value="أرسل" data-wait="Please wait..." class="button-primary w-button" />
+          </form>
+
+
+            <div class="success-message w-form-done">
+         </div></div></div></div></div></section>
+
+                  {% for info in information %}
+
+
+                  <section class="contact-info-section section-spacing-bottom"><div class="w-layout-blockcontainer container-full w-container">
+                    <div class="w-layout-grid grid-contact-info"><div id="w-node-a18d4558-b26e-5651-d31d-98c0a344f1f9-6d5e6a84" class="contact-info-item bg-gradient-1">
+                      <div class="contact-info-icon-wrap"><img src="{% static 'img/64a38f84efb4d356b637de7e_location.svg' %}" loading="eager" alt="" class="contact-info-icon"/></div>
+										<div><h6>العنوان</h6><div> {{ info.Address }}  </div></div></div>
+                    <div id="w-node-a18d4558-b26e-5651-d31d-98c0a344f201-6d5e6a84" class="contact-info-item bg-gradient-1"><div class="contact-info-icon-wrap">
+
+						<img src=" {% static 'img/64a38f84efb4d356b637de7f_phone.svg' %}" loading="eager" alt="" class="contact-info-icon"/></div>
+            <div><h6> اتصل بنا</h6><a href="tel:{{ info.PHONE }} " class="text-decoration-none">{{ info.PHONE }}  </a></div></div>
+            <div id="w-node-a18d4558-b26e-5651-d31d-98c0a344f209-6d5e6a84" class="contact-info-item bg-gradient-1">
+              <div class="contact-info-icon-wrap">
+						<img src=" {% static 'img/64a38f84efb4d356b637de80_email.svg' %}" loading="eager" alt="" class="contact-info-icon"/>
+          </div><div><h6>البريد الإلكتروني</h6><a href=" " class="text-decoration-none">{{ info.Gmail }}  </a></div></div></div></div></section>
+
+    {% endfor %}
+
+
+
+ {% if customers  %}
+
+	<section class="contact-detail-section" style=" margin-top:-130px;">
+			<div class="client-warp"><h3>عملائنا </h3>
+					<div class="w-layout-grid grid-client">
+            {% for customer in customers %}
+						<img src="{{ customer.Image.url }}" loading="lazy" id="w-node-b07831dd-f67e-f868-94cc-d9a1e7791c54-7cab2173"  alt="{{ customer.Title }}">
+            {% endfor %}
+          </div></div>
+						<div class="hero-blur-bottom"></div><div class="hero-blur-left"></div><div class="hero-blur-right"></div>
+
+	</section>
+
+{% endif %}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+						<section class="blog-section z-index"><div class="w-layout-blockcontainer container-full w-container">
+
+
+
+							<div class="w-layout-hflex section-title-wrap"><h3>مدونتنا</h3>
+
+
+
+                <a href="/blog" class="button-primary w-button">عرض المزيد</a></div><div class="w-dyn-list"><div role="list" class="grid-blog w-dyn-items">
+
+{% for blog_obj in blog %}
+
+                <div role="listitem" class="w-dyn-item">
+                  <a data-w-id="ff9e06db-55a8-fa0e-c9a1-efc116b33d89" style="background-color:rgb(255,255,255)"
+                   href="{% url 'marketing:blogdetails'  blog_obj.id %}"  class="blog-item w-inline-block">
+                  <div class="blog-image-wrap">
+                    <img alt="" loading="eager" style="-webkit-transform:translate3d(0, 0, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-moz-transform:translate3d(0, 0, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0)
+                    ;-ms-transform:translate3d(0, 0, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);transform:translate3d(0, 0, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0)"
+                    src="{{ blog_obj.Image.url }}" class="blog-image"/>
+
+                  </div><div class="blog-badge-wrap"><div class="blog-badge">{{ blog_obj.category }}</div>
+
+
+								<div>{{ blog_obj.created_at|timesince }}</div></div><h4 class="heading-h6">{{ blog_obj.Titel }}</h4><div class="blog-link">اقرأ أكثر</div>
+
+              </a>
+
+
+           </div>
+{% endfor %}
+ <br>  <br>  <br>
+ </div></div></div></section>
+
+
+
+  {% endblock %}

@@ -1,0 +1,115 @@
+
+{% extends "BaseGeneric.html" %} {% load static%} {% block content %}
+
+
+
+
+	<section class="contact-detail-section" >
+
+
+
+		<div class="w-layout-blockcontainer container-full w-container"><div class="w-layout-grid grid-contact-details"><div><h3>تواصل مع فريقنا</h3>
+
+			<img src="{% static 'img/64a38f69b6e5e826ff5dff7a_vector-18.webp' %}" loading="eager" alt="" class="contact-image"/><div class="contact-social-media-wrap"><h6>
+		انضم إلى مجتمعنا عبر مواقع التواصل
+		</h6>
+		{% for info in information %}
+
+		<div class="contact-social-icon-wrap"  >
+
+		<a href="{{ info.facebooklinke }}" target="_blank" class="w-inline-block">
+				<img src="{% static 'img/64a2b018636eec16b791e85f_facebook.svg' %}" loading="eager" alt=""/></a>
+				<a href="{{ info.instagramlinke }}" target="_blank" class="w-inline-block">
+					<img src="{% static 'img/64a2b018636eec16b791e85d_instagram.svg' %}" loading="eager" alt=""/></a>
+					<a href="{{ info.linkedinlinke }}" target="_blank" class="w-inline-block">
+					<img src="{% static 'img/64a2b018636eec16b791e860_linkedin.svg' %}" loading="eager" alt=""/></a>
+					<a href="{{ info.Twitterlinke }}" target="_blank" class="w-inline-block">
+            <img src="{% static 'img/64a2b018636eec16b791e85e_twitter.svg' %}" loading="eager" alt=""/></a>
+					</div> {% endfor %}
+				</div></div>
+            <div id="w-node-_78e0e86c-cb92-2435-a6ed-fe29fd22373a-6d5e6a84">
+						<div class="contact-form w-form">
+
+						<form method="post"  >
+						    {% csrf_token %}
+						    <div class="contact-input-wrap">
+						        <div class="input-group input-full-width">
+						            <label for="Name">الاسم</label>
+						            {{ form.Name }}
+						        </div>
+						        <div class="input-group input-full-width">
+						            <label for="Phone-No">رقم الهاتف</label>
+						            {{ form.phone_number }}
+						        </div>
+						    </div>
+						    <div class="input-group">
+						        <label for="Message">رسالة</label>
+						        {{ form.Description }}
+						    </div>
+						    <input type="submit" value="أرسل" data-wait="Please wait..." class="button-primary w-button" />
+						</form>
+
+
+							<div class="success-message w-form-done">
+					 </div></div></div></div></div></section>
+             {% for info in information %}
+
+
+             <section class="contact-info-section section-spacing-bottom"><div class="w-layout-blockcontainer container-full w-container">
+               <div class="w-layout-grid grid-contact-info"><div id="w-node-a18d4558-b26e-5651-d31d-98c0a344f1f9-6d5e6a84" class="contact-info-item bg-gradient-1">
+                 <div class="contact-info-icon-wrap"><img src="{% static 'img/64a38f84efb4d356b637de7e_location.svg' %}" loading="eager" alt="" class="contact-info-icon"/></div>
+               <div><h6>العنوان</h6><div> {{ info.Address }}  </div></div></div>
+               <div id="w-node-a18d4558-b26e-5651-d31d-98c0a344f201-6d5e6a84" class="contact-info-item bg-gradient-1"><div class="contact-info-icon-wrap">
+
+       <img src=" {% static 'img/64a38f84efb4d356b637de7f_phone.svg' %}" loading="eager" alt="" class="contact-info-icon"/></div>
+       <div><h6> اتصل بنا</h6><a href="tel:{{ info.PHONE }} " class="text-decoration-none">{{ info.PHONE }}  </a></div></div>
+       <div id="w-node-a18d4558-b26e-5651-d31d-98c0a344f209-6d5e6a84" class="contact-info-item bg-gradient-1">
+         <div class="contact-info-icon-wrap">
+       <img src=" {% static 'img/64a38f84efb4d356b637de80_email.svg' %}" loading="eager" alt="" class="contact-info-icon"/>
+     </div><div><h6>البريد الإلكتروني</h6><a href=" " class="text-decoration-none">{{ info.Gmail }}  </a></div></div></div></div>
+
+
+
+		 {% if info.Map_Address%}
+
+<br><br>
+
+		 		  <iframe     class="gmap_iframe"     width="100%" frameborder="0" scrolling="no" marginheight="0" marginwidth="0"
+		 			src="https://maps.google.com/maps?width=660&amp;height=385&amp;hl=en&amp;q=
+		 		   {{info.Map_Address}}
+		 		 &amp;t=p&amp;z=18&amp;ie=UTF8&amp;iwloc=B&amp;output=embed"></iframe>{% endif %}
+		 		           <style>
+
+
+		 		               .gmap_iframe {border: 1px solid  #ddd;
+		 		                   height: 385px !important;
+		 		               }
+		 		           </style>
+
+	 </section>
+
+
+
+
+
+
+
+
+
+
+{% endfor %}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  {% endblock %}

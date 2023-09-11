@@ -1,0 +1,101 @@
+
+{% extends "BaseGeneric.html" %} {% load static%} {% block content %}
+
+
+
+ <section class="service-section section-spacing">
+
+ <div class="utility-page-wrap"><div class="utility-page-wrapper">
+    <h3 class="text-light"> تم تسجيل بياناتك بنجاح. سنقوم بالتواصل معك قريبًا. شكرًا لك على التواصل!</h3>
+<br><br>
+
+   <div class="w-form">
+     <a href="/"  >
+
+     <button type="button" name="button" class="button-primary w-button">
+    الصفحة الرئيسية</button>
+    </a>
+    </div>
+
+
+
+ </section>
+
+
+
+ 
+
+
+ <section class="service-section section-spacing">
+ <div class="w-layout-blockcontainer container-full w-container">
+ <div class="service-hero-title-wrap">
+ <h3>     تلبية أهداف عملك.  </h3></div>
+ <div class="w-layout-grid grid-service margin-bottom">
+ {% for service in services %}
+ <a href=" {% url 'marketing:servicedetails' service.id %}" class="service-item w-inline-block">
+   <br>
+ <div class="service-icon-wrap">
+ <img src="{{ service.Image.url }}" loading="eager" alt=" {{ service.Title }}"/>
+ </div><h4 class="service-item-title">  {{ service.Title }}	</h4>
+ <div>{{ service.Description }}</div>
+<div class="blog-link">اقرأ أكثر</div>
+</a> {% endfor %}
+ </section>
+
+ <section class="service-pricing-section section-spacing-bottom footer-z-index">
+           <div class="w-layout-blockcontainer container-full w-container">
+             <div class="section-title-center"><h3>أفضل باقات خدمات لك</h3>
+         <div class="toggle-wrapper"><div>
+         </div></div></div>
+         <div class="content-service-pricing-tab">
+           <div class="w-layout-grid grid-service-pricing">
+           <div id="w-node-_798f7de4-e56c-803d-e6de-876a65aa8053-01a2fa45" class="service-pricing-item">
+             <div class="service-pricing-title-wrap">
+               <h6 class="text-light">الباقة الفضية</h6>
+         	<div style="opacity:1;display:grid" class="pricing-monthly">
+         	<div class="pricing-title-wrap"><h3 class="service-pricing-title">{{pricing_object.Silver_package}}</h3><div>/</div><div>شهر</div></div></div>
+         <div style="opacity:0;display:none" class="pricing-annual">
+         	<div class="pricing-title-wrap"><h3 class="service-pricing-title"></h3><div></div><div></div></div></div></div>
+         	<div class="service-pricing-list">
+         		<div class="service-pricing-item-wrap">
+         {% for package in silver_package %}
+         <div class="pricing-item">
+         <img src="{% static 'img/64a390f5e20bb4386d5fe2cf_list-icon.svg' %}" loading="eager" alt=""/><div>
+         {{ package.Description }}</div></div>{% endfor %}
+
+         		</div>
+            <a href="{% url 'marketing:CallUs' %}" class="button-primary-small w-button">البدء</a></div></div>
+         		<div id="w-node-_798f7de4-e56c-803d-e6de-876a65aa807b-01a2fa45" class="service-pricing-item">
+               <div class="service-pricing-title-wrap">
+                 <h6 class="text-light">الباقة الذهبية
+         		</h6><div style="opacity:1;display:grid" class="pricing-monthly">
+               <div class="pricing-title-wrap">
+                 <h3 class="service-pricing-title">{{pricing_object.Golden_package}}</h3><div>/</div><div>شهر</div>
+               </div></div><div style="opacity:0;display:none" class="pricing-annual">
+                 <div class="pricing-title-wrap">
+                   <h3 class="service-pricing-title"></h3>
+                   <div>/</div><div></div></div></div></div><div class="service-pricing-list">
+
+         			<div class="service-pricing-item-wrap">
+             {% for package in golden_package %}
+             <div class="pricing-item">
+             <img src="{% static 'img/64a390f5e20bb4386d5fe2cf_list-icon.svg' %}" loading="eager" alt=""/><div>
+             {{ package.Description }}</div></div>{% endfor %}
+         </div><a href="{% url 'marketing:CallUs' %}" class="button-primary-small w-button">البدء</a></div></div>
+         <div id="w-node-_798f7de4-e56c-803d-e6de-876a65aa80a3-01a2fa45" class="service-pricing-item"><div class="service-pricing-title-wrap">
+               <h6 class="text-light">الباقة البرونزية
+         		</h6><div style="opacity:1;display:grid" class="pricing-monthly"
+             ><div class="pricing-title-wrap">
+               <h3 class="service-pricing-title"> {{pricing_object.Bronze_package}}  </h3><div>/</div><div>شهر</div></div></div>
+               <div style="opacity:0;display:none" class="pricing-annual">
+                 <div class="pricing-title-wrap"><h3 class="service-pricing-title"></h3><div></div><div></div></div></div></div><div class="service-pricing-list">
+                   <div class="service-pricing-item-wrap">
+             {% for package in bronze_package %}
+             <div class="pricing-item">
+             <img src="{% static 'img/64a390f5e20bb4386d5fe2cf_list-icon.svg' %}" loading="eager" alt=""/><div>
+             {{ package.Description }}</div></div>{% endfor %}
+         </div><a href="{% url 'marketing:CallUs' %}" class="button-primary-small w-button">البدء</a></div></div></div></div></div></section>
+
+
+
+  {% endblock %}

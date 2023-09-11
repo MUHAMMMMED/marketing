@@ -1,0 +1,90 @@
+
+{% extends "BaseGeneric.html" %} {% load static%} {% block content %}
+
+<br><br><br>
+
+ <section class="hero-inner"><div><h1>المقالات</h1></div></section>
+
+
+
+
+ <section class="blog-section z-index"><div class="w-layout-blockcontainer container-full w-container">
+
+
+
+   <div class="w-layout-hflex section-title-wrap">
+
+
+
+      </div><div class="w-dyn-list"><div role="list" class="grid-blog w-dyn-items">
+
+{% for blog_obj in page_obj %}
+
+     <div role="listitem" class="w-dyn-item">
+       <a data-w-id="ff9e06db-55a8-fa0e-c9a1-efc116b33d89" style="background-color:rgb(255,255,255)" href=" {% url 'marketing:blogdetails' blog_obj.id %}" class="blog-item w-inline-block">
+       <div class="blog-image-wrap">
+         <img alt="" loading="eager" style="-webkit-transform:translate3d(0, 0, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-moz-transform:translate3d(0, 0, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0)
+         ;-ms-transform:translate3d(0, 0, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);transform:translate3d(0, 0, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0)"
+         src="{{ blog_obj.Image.url }}" class="blog-image"/>
+
+       </div><div class="blog-badge-wrap"><div class="blog-badge">{{ blog_obj.category }}</div>
+
+
+     <div>{{ blog_obj.created_at|timesince }}</div></div><h4 class="heading-h6">{{ blog_obj.Titel }}</h4><div class="blog-link">اقرأ أكثر</div>
+
+   </a>
+
+
+</div>
+{% endfor %}
+<br>  <br>  <br>
+</div>
+
+
+<div role="navigation" aria-label="List" class="w-pagination-wrapper pagination">
+  {% if page_obj.has_previous %}
+    <a href="?page={{ page_obj.previous_page_number }}" aria-label="Previous Page" class="w-pagination-previous button-primary-small">
+
+      <div class="w-inline-block">السابق</div>
+      <svg class="w-pagination-previous-icon" height="12px" width="12px" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 12" transform="translate(0, 1)">
+        <path fill="none" stroke="currentColor" fill-rule="evenodd" d="M8 2L4 6l4 4"></path>
+      </svg>
+
+    </a>
+  {% endif %}
+
+  <div id="w-node-d2a7265c-424f-5c41-2641-d64ee11fde27-43b60c93" aria-label="Page {{ page_obj.number }} of {{ page_obj.paginator.num_pages }}" role="heading" class="w-page-count page-count">
+    {{ page_obj.number }} / {{ page_obj.paginator.num_pages }}
+  </div>
+
+  {% if page_obj.has_next %}
+    <a href="?page={{ page_obj.next_page_number }}" aria-label="Next Page" class="w-pagination-next button-primary-small">
+
+      <div class="w-inline-block">التالي</div>
+      <svg class="w-pagination-next-icon" height="12px" width="12px" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 12" transform="translate(0, 1)">
+        <path fill="none" stroke="currentColor" fill-rule="evenodd" d="M4 2l4 4-4 4"></path>
+      </svg>
+
+    </a>
+  {% endif %}
+</div>
+
+ <br>  <br>  <br>
+</div></div> </section>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  {% endblock %}
